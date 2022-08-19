@@ -1,6 +1,6 @@
 <?php
 
-namespace Mehdi\BehatDoctrineContext;
+namespace MTZ\BehatContext\Doctrine;
 
 use Behat\Gherkin\Node\TableNode;
 use Behat\Mink\Mink;
@@ -45,16 +45,12 @@ class DoctrineContext implements MinkAwareContext
 
     /**
      * @param EntityManagerInterface $entityManager
-     * @param bool $purgeBeforeScenario
      */
     public function __construct(
         EntityManagerInterface $entityManager,
-        bool                   $purgeBeforeScenario = false
     )
     {
         $this->entityManager = $entityManager;
-        $this->purgeBeforeScenario = $purgeBeforeScenario;
-
         $this->propertyAccessor = PropertyAccess::createPropertyAccessor();
     }
 

@@ -1,15 +1,16 @@
 {
-    "name": "mehdi/behat-doctine-context",
+    "name": "mtz/behat-doctine-context",
     "description": "A syntactic sugar for creating entities from the behat feature file",
+    "license": "MIT",
     "type": "library",
     "autoload": {
         "psr-4": {
-            "Mehdi\\BehatDoctrineContext\\": "src/"
+            "MTZ\\BehatContext\\Doctrine\\": "src/"
         }
     },
     "authors": [
         {
-            "name": "Mehdi",
+            "name": "Mehdi Zarrin",
             "email": "mehdi.zarrin@gmail.com"
         }
     ],
