@@ -47,7 +47,7 @@ class DoctrineContext implements MinkAwareContext
      * @param EntityManagerInterface $entityManager
      */
     public function __construct(
-        EntityManagerInterface $entityManager,
+        EntityManagerInterface $entityManager
     )
     {
         $this->entityManager = $entityManager;
