@@ -1,0 +1,27 @@
+{
+    "name": "mehdi/behat-doctine-context",
+    "description": "A syntactic sugar for creating entities from the behat feature file",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Mehdi\\BehatDoctrineContext\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Mehdi",
+            "email": "mehdi.zarrin@gmail.com"
+        }
+    ],
+    "require": {
+        "behat/behat": ">=3.0.5",
+        "doctrine/orm": ">=2.0",
+        "doctrine/dbal": ">= 3.0",
+        "doctrine/data-fixtures": " >= 1.0",
+        "friends-of-behat/mink": " >= 1.10",
+        "friends-of-behat/mink-extension": "^2.7",
+        "symfony/property-access": ">=3.0",
+        "php": ">=7.0",
+        "doctrine/instantiator": "^1.4"
+    }
+}
