@@ -22,7 +22,8 @@
         "friends-of-behat/mink": " >= 1.10",
         "friends-of-behat/mink-extension": "^2.7",
         "symfony/property-access": ">=3.0",
-        "php": ">=7.0",
-        "doctrine/instantiator": "^1.4"
+        "php": ">=8.0",
+        "doctrine/instantiator": "^1.4",
+        "dama/doctrine-test-bundle": "^7.2"
     }
 }

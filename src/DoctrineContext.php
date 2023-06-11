@@ -5,6 +5,7 @@ namespace MTZ\BehatContext\Doctrine;
 use Behat\Gherkin\Node\TableNode;
 use Behat\Mink\Mink;
 use Behat\MinkExtension\Context\MinkAwareContext;
+use DAMA\DoctrineTestBundle\Doctrine\DBAL\StaticDriver;
 use DateTime;
 use Doctrine\Common\DataFixtures\ReferenceRepository;
 use Doctrine\DBAL\Types\Types;
@@ -63,6 +64,34 @@ class DoctrineContext implements MinkAwareContext
     public function setMinkParameters(array $parameters)
     {
         // We don't need mink parameters right now
+    }
+
+    /**
+     * @Given /^Auto Increment is rest for "(?P<className>[^"]*)"$/
+     * @param string $className
+     * @param TableNode $table
+     *
+     * @throws MappingException
+     * @throws ReflectionException
+     * @throws ORMException
+     */
+    public function AutoIncrementIsResetFor(string $className)
+    {
+        $reflection = new \ReflectionClass($className);
+        $tableName = false;
+        foreach ($reflection->getAttributes() as $attribute) {
+
+            if ($attribute->getName() === 'Doctrine\ORM\Mapping\Table') {
+                $tableName = $attribute->getArguments()[0];
+            }
+        }
+
+        if ($tableName) {
+            StaticDriver::rollBack();
+            $connection = $this->entityManager->getConnection();
+            $result = $connection->executeQuery('ALTER TABLE ' . $tableName . ' AUTO_INCREMENT = 1');
+            StaticDriver::beginTransaction();
+        }
     }
 
 
